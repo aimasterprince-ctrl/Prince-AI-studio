@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#17112f">
+<title>Prince AI Studio</title>
+<style>
+:root{--bg:#0d0a19;--panel:#19142b;--panel2:#211a38;--text:#f8f5ff;--muted:#b9b1ce;--gold:#ffca68;--pink:#f17ac7;--line:#393052}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 85% 0,#35204c 0,transparent 34%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+.wrap{max-width:900px;margin:auto;padding:20px 15px 48px}.top{display:flex;align-items:center;gap:12px;margin:10px 0 22px}.logo{width:48px;height:48px;border-radius:15px;background:linear-gradient(135deg,#ffce70,#ec70c7);display:grid;place-items:center;color:#21142d;font-weight:900;font-size:21px;box-shadow:0 8px 28px #ef8bc744}.brand{font-size:21px;font-weight:850;letter-spacing:.2px}.sub{color:var(--muted);font-size:12px}.hero{padding:24px 20px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(135deg,#251a3d,#171327);margin-bottom:17px}.tag{color:var(--gold);font-size:12px;font-weight:800;letter-spacing:1.3px}.hero h1{font-size:clamp(26px,6vw,38px);line-height:1.15;margin:9px 0}.hero p{color:var(--muted);margin:0;line-height:1.6}.card{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:18px;margin:14px 0}.card h2{font-size:18px;margin:0 0 14px}.label{display:block;font-size:13px;color:#e4dff0;font-weight:700;margin:14px 0 7px}textarea,select,input{width:100%;border:1px solid #4a3d65;background:#100d1d;color:var(--text);border-radius:12px;padding:13px;font:inherit;outline:none}textarea:focus,select:focus{border-color:var(--gold)}textarea{min-height:112px;resize:vertical}select{appearance:auto}.modes{display:grid;grid-template-columns:1fr 1fr;gap:10px}.mode{border:1px solid var(--line);border-radius:14px;padding:13px;background:var(--panel2);color:var(--text);text-align:left;cursor:pointer}.mode.active{border-color:var(--gold);background:#3a2a43}.mode b{display:block;margin-bottom:4px}.mode small{color:var(--muted)}.btn{border:0;border-radius:13px;padding:14px 17px;font-weight:850;font-size:15px;cursor:pointer}.primary{width:100%;background:linear-gradient(100deg,#ffce70,#f17ac7);color:#24152d;margin-top:17px}.secondary{background:#332747;color:#fff;border:1px solid #57456e}.outputs{display:none}.out{background:#100d1d;border:1px solid var(--line);border-radius:14px;padding:13px;margin:10px 0}.outhead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px;font-weight:800}.out p{white-space:pre-wrap;line-height:1.55;color:#e5dff0;font-size:14px;margin:0}.copy{font-size:12px;padding:7px 10px;border-radius:9px}.note{font-size:12px;color:var(--muted);line-height:1.55;margin-top:14px}.status{color:var(--gold);font-size:13px;margin-top:12px;min-height:20px}.footer{text-align:center;color:#8e85a5;font-size:12px;margin-top:25px}
+@media(min-width:650px){.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.card{padding:22px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="logo">P</div><div><div class="brand">Prince AI Studio</div><div class="sub">Create videos • Bhajans • Music</div></div></header>
+<section class="hero"><div class="tag">YOUR CREATIVE AI WORKSPACE</div><h1>आपका आइडिया,<br>आपका वीडियो और म्यूजिक 🎬</h1><p>अपना टेक्स्ट लिखें और वीडियो बनाने के लिए कहानी, सीन, गाने के बोल और म्यूजिक प्रॉम्प्ट तैयार करें।</p></section>
+<section class="card">
+<h2>✨ नया प्रोजेक्ट बनाएं</h2>
+<div class="label">वीडियो का प्रकार चुनें</div>
+<div class="modes">
+<button class="mode active" data-mode="bhakti" onclick="setMode('bhakti',this)"><b>🙏 भक्ति वीडियो</b><small>कृष्ण, राधा रानी, खाटू श्याम, भजन</small></button>
+<button class="mode" data-mode="dj" onclick="setMode('dj',this)"><b>🎧 DJ / म्यूजिक वीडियो</b><small>तेज बीट, पार्टी, म्यूजिक</small></button>
+</div>
+<label class="label" for="idea">आप क्या बनाना चाहते हैं? अपना टेक्स्ट लिखें</label>
+<textarea id="idea" placeholder="उदाहरण: खाटू श्याम बाबा के जन्मदिन पर मंदिर, फूलों की सजावट और भक्तों के साथ एक शानदार वीडियो बनाओ..."></textarea>
+<div class="grid">
+<div><label class="label" for="voice">आवाज</label><select id="voice"><option>पुरुष आवाज</option><option>महिला आवाज</option><option>पुरुष और महिला दोनों</option><option>बिना आवाज / केवल म्यूजिक</option></select></div>
+<div><label class="label" for="duration">वीडियो की अवधि</label><select id="duration"><option>30 सेकंड</option><option>60 सेकंड</option><option>2 मिनट</option><option>5 मिनट</option></select></div>
+<div><label class="label" for="language">भाषा</label><select id="language"><option>हिंदी</option><option>हिंग्लिश</option><option>English</option></select></div>
+<div><label class="label" for="format">वीडियो फॉर्मेट</label><select id="format"><option>9:16 YouTube Shorts / Reels</option><option>16:9 YouTube Long Video</option><option>1:1 Square</option></select></div>
+</div>
+<button class="btn primary" onclick="createProject()">✨ मेरे लिए कंटेंट तैयार करो</button>
+<div class="status" id="status" role="status"></div>
+<p class="note">ध्यान दें: यह शुरुआती प्रोटोटाइप आपके आइडिया से तैयार प्रॉम्प्ट और गीत बनाता है। असली AI वीडियो/ऑडियो जनरेशन के लिए आगे वीडियो और म्यूजिक जनरेशन सेवाओं की API जोड़नी होगी।</p>
+</section>
+<section class="card outputs" id="outputs">
+<h2>🎉 आपका क्रिएशन पैक तैयार है</h2>
+<div class="out"><div class="outhead"><span>🎬 वीडियो जनरेशन प्रॉम्प्ट</span><button class="btn secondary copy" onclick="copyOut('videoPrompt')">कॉपी</button></div><p id="videoPrompt"></p></div>
+<div class="out"><div class="outhead"><span>🎵 गाने के बोल</span><button class="btn secondary copy" onclick="copyOut('lyrics')">कॉपी</button></div><p id="lyrics"></p></div>
+<div class="out"><div class="outhead"><span>🎼 म्यूजिक जनरेशन प्रॉम्प्ट</span><button class="btn secondary copy" onclick="copyOut('musicPrompt')">कॉपी</button></div><p id="musicPrompt"></p></div>
+<div class="out"><div class="outhead"><span>📝 वीडियो टाइटल और विवरण</span><button class="btn secondary copy" onclick="copyOut('description')">कॉपी</button></div><p id="description"></p></div>
+</section>
+<div class="footer">Prince AI Studio · शुरुआती वेबसाइट प्रोटोटाइप</div>
+</div>
+<script>
+let mode='bhakti';
+function setMode(m,el){mode=m;document.querySelectorAll('.mode').forEach(x=>x.classList.remove('active'));el.classList.add('active')}
+function createProject(){
+ const idea=document.getElementById('idea').value.trim();
+ if(!idea){document.getElementById('status').textContent='पहले अपने वीडियो का आइडिया लिखें।';document.getElementById('idea').focus();return}
+ const voice=document.getElementById('voice').value,duration=document.getElementById('duration').value,language=document.getElementById('language').value,format=document.getElementById('format').value;
+ const bhakti=mode==='bhakti';
+ const video=`Create a high-quality ${duration} ${format} video in ${language}. Concept: ${idea}. ${bhakti?'Use devotional, respectful and uplifting visuals, beautiful temple details, flowers, lamps, cinematic camera movement and warm divine lighting.':'Use energetic cinematic visuals, dynamic camera movement, vibrant stage lights, rhythm-synced cuts and exciting music-video atmosphere.'} Include a clear beginning, middle and memorable ending. Voice preference: ${voice}.`;
+ const lyrics=bhakti?`[मुखड़ा]\\n${idea}\\nतेरे नाम से रोशन मेरी हर शाम,\\nतेरे चरणों में मिलता सुकून और धाम।\\n\\n[अंतरा]\\nभक्ति की ज्योति दिल में जला दे,\\nअपने प्रेम से जीवन सजा दे।\\nहर सांस में तेरा ही नाम रहे,\\nतेरी कृपा सुबह-शाम रहे।\\n\\n[मुखड़ा दोहराएं]\\nजय हो, जय हो, तेरी जयकार,\\nतेरे चरणों में बारंबार नमस्कार।`:`[हुक / मुखड़ा]\\nआज की रात है मस्ती के नाम,\\nबीट बजे और झूमे सारा जहान!\\nहाथ उठाओ, साथ में गाओ,\\nअपनी धुन पर दुनिया नचाओ!\\n\\n[अंतरा]\\nधक-धक बीट दिलों को जगाए,\\nरोशनी हर तरफ रंग बरसाए।\\nआवाज बढ़ाओ, माहौल बनाओ,\\nएक साथ सब जश्न मनाओ!\\n\\n[हुक दोहराएं]`;
+ const music=bhakti?`Compose an original Hindi devotional bhajan. Vocal: ${voice}. Style: soulful Indian devotional music with harmonium, tabla, dholak, manjira, flute and uplifting strings. Build gently into a powerful chorus. Clear Hindi pronunciation, memorable melody, ${duration} arrangement. Theme: ${idea}.`:`Compose an original high-energy DJ song. Vocal: ${voice}. Style: punchy electronic dance beat blended with dhol, nagada, bass, synth leads and festival-style drops. Strong catchy hook, clean mix, ${duration} arrangement. Theme: ${idea}.`;
+ const desc=`Title: ${idea.slice(0,75)}\\n\\nDescription:\\n${idea}\\n\\nयह वीडियो Prince AI Studio के साथ तैयार किए गए क्रिएटिव कॉन्सेप्ट पर आधारित है। पसंद आए तो Like, Share और Subscribe करें।\\n\\n#PrinceAIStudio #AIvideo #${bhakti?'Bhakti':'DJMusic'} #HindiMusic`;
+ document.getElementById('videoPrompt').textContent=video;
+ document.getElementById('lyrics').textContent=lyrics;
+ document.getElementById('musicPrompt').textContent=music;
+ document.getElementById('description').textContent=desc;
+ document.getElementById('outputs').style.display='block';
+ document.getElementById('status').textContent='आपका क्रिएशन पैक तैयार है। नीचे स्क्रॉल करें और कॉपी करें।';
+ document.getElementById('outputs').scrollIntoView({behavior:'smooth'});
+}
+function copyOut(id){const t=document.getElementById(id).textContent;if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(()=>document.getElementById('status').textContent='कॉपी हो गया!').catch(()=>fallback(t))}else fallback(t)}
+function fallback(t){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove();document.getElementById('status').textContent='कॉपी हो गया!'}
+</script>
+</body>
+</html>
